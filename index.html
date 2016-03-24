@@ -1,0 +1,86 @@
+<!doctype html>
+<head>
+<style>
+ .wrapp{
+			width: 990px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: yellow; 
+			}
+ .header {
+   height:200px;
+   border: 1px solid red;
+   background:#FFFFFF;
+ }
+ .topmenu {
+  height: 50px;
+  border: 2px solid black;
+ }
+ .mainbody {
+  height:1024px;
+  width:80%;
+  background:#71bc78;
+  float:left;
+ }
+ #sidemenu {
+ height:600px;
+ width:20%;
+ background:#dc9d00;
+ float:right;
+ }
+ .sticky_sidemenu {
+			position: fixed;
+			top: 0px;
+			float:right;
+		}
+ .leftcolumn{
+ width:50%;
+ float:left;
+ border: 1px solid black;
+ height:200px;
+ background:#f39f18;
+ }
+ .rightcolumn{
+ width: 50%;
+ float:right;
+ height:250px;
+ background:#f4c430;
+ 
+ }
+</style> 
+<title> Welcome page </title>
+</head>
+<body>
+<div class="wrapp">
+	<div class="header">
+	Head
+	</div>
+	<div class="topmenu"> Menu </div>
+		<div class="mainbody"> 
+			<div class="leftcolumn"> left </div>
+			<div class="rightcolumn"> right </div>
+			<div class="leftcolumn"> left </div>
+		</div>
+		<div id="sidemenu">
+		menu <br>
+		menu <br>
+		menu <br>
+		</div>
+</div> 
+<script type="text/javascript">
+	var runOnScroll = function(evt) {
+		var doc = document.documentElement;
+		var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+		var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+		console.log(top);
+		if (top > 264) {
+			document.getElementById('sidemenu').classList.add("sticky_sidemenu");
+		} else {
+			document.getElementById('sidemenu').classList.remove("sticky_sidemenu");
+		}
+	};
+
+  window.addEventListener("scroll", runOnScroll);
+  </script>
+</body> 
+</html> 
